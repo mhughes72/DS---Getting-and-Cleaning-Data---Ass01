@@ -1,5 +1,5 @@
 # CodeBook - Getting and Cleaning Data
-This is a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data.
+This is a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data.  The session info is also included.
 
 #The data source
 
@@ -7,13 +7,7 @@ Original data: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUC
 Original description of the dataset: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 Data Set Information
 
-The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.
-
-The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
-
-The data
-
-The dataset includes the following files:
+##The data
 
 'README.txt'
 
@@ -31,8 +25,6 @@ The dataset includes the following files:
 
 'test/y_test.txt': Test labels.
 
-The following files are available for the train and test data. Their descriptions are equivalent.
-
 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
 
 'train/Inertial Signals/total_acc_x_train.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis.
@@ -41,20 +33,33 @@ The following files are available for the train and test data. Their description
 
 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.
 
-Transformation details
+# run_analysis Details
 
-There are 5 parts:
+- Requires the plyr library.
+- Reads all required data from the UIC directory that should be included with the .R file.
+- Creates a new dataset that pairs the Activity and Subject info with the experiment results.
+- Renames all columns with appropriate titles.
+- Creates a final data set with the Means of all the experimental data and saves it as tidydata.txt.
 
-Merges the training and the test sets to create one data set.
-Extracts only the measurements on the mean and standard deviation for each measurement.
-Uses descriptive activity names to name the activities in the data set
-Appropriately labels the data set with descriptive activity names.
-Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-How run_analysis.R implements the above steps:
 
-Require reshapre2 and data.table librareis.
-Load both test and train data
-Load the features and activity labels.
-Extract the mean and standard deviation column names and data.
-Process the data. There are two parts processing test and train data respectively.
-Merge data set.
+
+# Session Info
+
+R version 3.2.3 (2015-12-10)
+Platform: x86_64-apple-darwin13.4.0 (64-bit)
+Running under: OS X 10.9.5 (Mavericks)
+
+locale:
+[1] en_CA.UTF-8/en_CA.UTF-8/en_CA.UTF-8/C/en_CA.UTF-8/en_CA.UTF-8
+
+attached base packages:
+[1] grid      stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] plyr_1.8.3    knitr_1.12.3  jpeg_0.1-8    fields_8.3-6  maps_3.1.0    spam_1.3-0    ggplot2_2.0.0 swirl_2.2.21 
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_0.12.3      magrittr_1.5     munsell_0.4.3    colorspace_1.2-6 R6_2.1.2         stringr_1.0.0    httr_1.1.0      
+ [8] tools_3.2.3      gtable_0.1.2     yaml_2.1.13      digest_0.6.9     crayon_1.3.1     bitops_1.0-6     RCurl_1.95-4.7  
+[15] testthat_0.11.0  curl_0.9.5       memoise_1.0.0    stringi_1.0-1    scales_0.3.0    
+
