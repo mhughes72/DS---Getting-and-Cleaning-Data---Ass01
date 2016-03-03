@@ -10,8 +10,8 @@ This repository contains my work for the course project for the Coursera course 
 These data sets include the raw results from both sets of experiments.
 
 ###Other Data
-# Subject: The number label for each of the subjects in the experiment
-# Activity: The name of the activity for each result set
+- Subject: The number label for each of the subjects in the experiment
+- Activity: The name of the activity for each result set
 
 ##Script and TidyData.txt
 
